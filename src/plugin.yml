@@ -1,5 +1,5 @@
 name: Derp
-version: 0.0.1
+version: 1.0.0
 main: com.github.lukevers.derp.Derp
 description: Adds derpy commands!
 authors: [Luke Evers, Dylan Whichard, Sasha Crofter]
