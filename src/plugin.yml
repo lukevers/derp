@@ -1,8 +1,9 @@
 name: Derp
-version: 1.0.0
-main: com.github.lukevers.derp.Derp
+version: 2.0.0
 description: Adds derpy commands!
-authors: [Luke Evers, Dylan Whichard, Sasha Crofter]
+author: Luke Evers
+
+main: com.lukevers.derp.Derp
 
 commands:
     derp:
@@ -11,7 +12,8 @@ commands:
 
 permissions:
     derp.add:
-        description: Allows player to add derp texts
+        description: Allows players to add derp texts
         default: op
-    derp.reload:
-        description: Allows the player to reload the list of derps
+    derp.remove:
+        description: Allows players to remove derp texts
+        default: op
