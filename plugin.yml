@@ -1,0 +1,19 @@
+name: Derp
+version: 2.0.0
+description: Adds derpy commands!
+author: Luke Evers
+
+main: com.lukevers.derp.Derp
+
+commands:
+    derp:
+        description: Allows the player to show that they have derped
+        usage: /derp 
+
+permissions:
+    derp.add:
+        description: Allows players to add derp texts
+        default: op
+    derp.remove:
+        description: Allows players to remove derp texts
+        default: op

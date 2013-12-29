@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Derp" default="jar" basedir=".">
+  <description>Bukkit plugin that allows players to derp</description>
+  <property name="source.dir" location="src"/>
+  <property name="build.dir" location="bin"/>
+  <property name="bukkit.jar" location="lib/bukkit.jar"/>
+  
+  <target name="init" description="setup directories">
+    <mkdir dir="${build.dir}"/>
+  </target>
+  
+  <target name="download" description="download dependencies">
+    <exec executable="wget">
+      <arg value="-O"/>
+      <arg value="lib/bukkit.jar"/>
+      <arg value="http://dl.bukkit.org/latest-dev/bukkit.jar"/>
+    </exec>
+  </target>
+  
+  <target name="compile" description="compile java">
+    <javac includeantruntime="false" srcdir="${source.dir}" destdir="${build.dir}">
+      <classpath>
+        <pathelement location="${bukkit.jar}"/>
+        <pathelement location="lib/Derp.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile" description="create jar">
+    <jar destfile="Derp.jar" basedir="${build.dir}">
+      <zipgroupfileset dir="lib" includes="*.jar"/>
+      <fileset dir="." includes="plugin.yml"/>
+    </jar>
+  </target>
+
+  <target name="clean" description="clean files">
+    <delete>
+      <fileset dir="${build.dir}"/>
+      <fileset dir="." includes="Derp.jar"/>
+    </delete>
+  </target>
+</project>
