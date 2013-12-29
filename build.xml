@@ -7,9 +7,6 @@
   
   <target name="init" description="setup directories">
     <mkdir dir="${build.dir}"/>
-  </target>
-  
-  <target name="download" description="download dependencies">
     <exec executable="wget">
       <arg value="-O"/>
       <arg value="lib/bukkit.jar"/>
