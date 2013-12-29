@@ -17,7 +17,7 @@
     </exec>
   </target>
   
-  <target name="compile" description="compile java">
+  <target name="compile" depends="init" description="compile java">
     <javac includeantruntime="false" srcdir="${source.dir}" destdir="${build.dir}">
       <classpath>
         <pathelement location="${bukkit.jar}"/>
