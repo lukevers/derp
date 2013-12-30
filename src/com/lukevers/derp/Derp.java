@@ -8,8 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Derp extends JavaPlugin {
     
-    private ArrayList <String> phrases = new ArrayList <String>();
-    
+    private Commands c;
+
     @Override
     public void onDisable() {
 	getLogger().info("Derp commands disabled!");
@@ -18,11 +18,12 @@ public class Derp extends JavaPlugin {
     @Override
     public void onEnable() {
 	getLogger().info("Derp commands enabled!");
+	c.ReadFile();
     }
     
     @Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-	new Commands(sender, cmd.getName(), args, this.phrases);
+	this.c = new Commands(sender, cmd.getName(), args);
 	return true;
     }
 }

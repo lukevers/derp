@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -38,8 +37,7 @@ public class Commands {
      * @param args
      * @param list
      */
-    public Commands(CommandSender sender, String cmd, String [] args, ArrayList <String> phrases) {
-	this.phrases = phrases;
+    public Commands(CommandSender sender, String cmd, String [] args) {
 	this.config = Bukkit.getServer().getPluginManager().getPlugin("Derp");
 	if (args.length == 0) {
 	    SendDerp(sender, sender.getName());
@@ -48,16 +46,12 @@ public class Commands {
 		ListDerps(sender);
 	    else if (args[0].equalsIgnoreCase("help"))
 		HelpDerp(sender);
-	    else if (args[0].equalsIgnoreCase("add")) {
-		Bukkit.getLogger().log(Level.INFO, "ADD BITCHES");
+	    else if (args[0].equalsIgnoreCase("add"))
 		AddDerp(sender, args);
-	    }
 	    else if (args[0].equalsIgnoreCase("remove")) 
 		RemoveDerp(sender, args);
-	    else if (args[0].equalsIgnoreCase("reload")) {
-		Bukkit.getLogger().log(Level.INFO, "RELOAD BITCHES");
+	    else if (args[0].equalsIgnoreCase("reload"))
 		ReadFile();
-	    }
 	    else SendDerp(sender, args[0]);
 	    
 	} 
@@ -86,7 +80,7 @@ public class Commands {
      *
      * Updates the ArrayList
      */
-    private void ReadFile() {
+    public void ReadFile() {
 	this.phrases.clear();
 	try {
 	    FileInputStream fis = new FileInputStream(config.getDataFolder()+File.separator+"Derps.txt");
