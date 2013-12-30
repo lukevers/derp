@@ -23,13 +23,13 @@ public class Derp extends JavaPlugin {
     
     private ArrayList <String> phrases;
     private Plugin config;
-
+    
     /**
      * Permissions
      */
     private Permission add = new Permission("derp.add","Adds a derp to the list",PermissionDefault.OP);
     private Permission remove = new Permission("derp.remove","Removes a derp from the list",PermissionDefault.OP);
-
+    
     @Override
     public void onDisable() {
 	getLogger().info("Derp commands disabled!");
@@ -59,6 +59,7 @@ public class Derp extends JavaPlugin {
 		ReadFile();
 	    else SendDerp(sender, args[0]);
 	}
+	return true;
     }
     
     /**
@@ -84,7 +85,7 @@ public class Derp extends JavaPlugin {
      *
      * Updates the ArrayList
      */
-    public void ReadFile() {
+    private void ReadFile() {
 	this.phrases.clear();
 	try {
 	    FileInputStream fis = new FileInputStream(config.getDataFolder()+File.separator+"Derps.txt");
@@ -98,7 +99,7 @@ public class Derp extends JavaPlugin {
 	    br.close();
 	} catch (Exception e) {}
     }
-
+    
     
     /**
      * Add Derp
