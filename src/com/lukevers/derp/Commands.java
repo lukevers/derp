@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -47,12 +48,16 @@ public class Commands {
 		ListDerps(sender);
 	    else if (args[0].equalsIgnoreCase("help"))
 		HelpDerp(sender);
-	    else if (args[0].equalsIgnoreCase("add"))
+	    else if (args[0].equalsIgnoreCase("add")) {
+		Bukkit.getLogger().log(Level.INFO, "ADD BITCHES");
 		AddDerp(sender, args);
+	    }
 	    else if (args[0].equalsIgnoreCase("remove")) 
 		RemoveDerp(sender, args);
-	    else if (args[0].equalsIgnoreCase("reload"))
+	    else if (args[0].equalsIgnoreCase("reload")) {
+		Bukkit.getLogger().log(Level.INFO, "RELOAD BITCHES");
 		ReadFile();
+	    }
 	    else SendDerp(sender, args[0]);
 	    
 	} 
