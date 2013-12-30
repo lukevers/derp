@@ -3,10 +3,12 @@
   <description>Bukkit plugin that allows players to derp</description>
   <property name="source.dir" location="src"/>
   <property name="build.dir" location="bin"/>
+  <property name="lib.dir" location="lib"/>
   <property name="bukkit.jar" location="lib/bukkit.jar"/>
   
   <target name="init" description="setup directories">
     <mkdir dir="${build.dir}"/>
+    <mkdir dir="${lib.dir}"/>
     <exec executable="wget">
       <arg value="-O"/>
       <arg value="lib/bukkit.jar"/>
